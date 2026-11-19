@@ -42,7 +42,9 @@ js/app.js          出題・採点・保存の処理
 
 ビルド不要の静的サイトなので、そのまま静的ホスティングに置けます。
 
+- Cloudflare Pages（Direct Upload）: https://radiation-quiz.pages.dev
 - Render（Static Site・Publish Directory `.`）: https://radiation-quiz.onrender.com
-- GitHub Pages（Settings → Pages → Deploy from a branch / `main` / `/ (root)`）: https://hato2170.github.io/radiation-quiz/
 
-参照はすべて相対パス（`css/style.css`、`js/app.js` など）なので、`https://hato2170.github.io/radiation-quiz/` のようなサブパス配信でもそのまま動きます。
+参照はすべて相対パス（`css/style.css`、`js/app.js` など）なので、ルート配信・サブパス配信のどちらでもそのまま動きます。
+
+GitHub Pages は 2026-11-19 に停止しました（Settings → Pages の Source を `None`）。
