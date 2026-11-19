@@ -1,2 +1,4 @@
 shots/
+shots-live/
 test_playwright.py
+test_resume.py
