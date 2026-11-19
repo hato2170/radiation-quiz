@@ -29,7 +29,7 @@ window.QUIZ_DATA = {
   difficulties: [
     { id: "basic",    name: "基礎",       desc: "用語と原理の入門" },
     { id: "applied",  name: "応用",       desc: "装置と撮影技術" },
-    { id: "national", name: "国試",       desc: "国家試験レベル" }
+    { id: "national", name: "国家試験",   desc: "国家試験レベル" }
   ],
 
   questions: [
