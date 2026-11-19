@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>放射線技師クイズ</title>
+<meta name="description" content="診療放射線技師を目指す人のための、解説つき四択クイズ。">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2316705f'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23fff' font-family='sans-serif'%3ER%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- ============ ホーム ============ -->
+<section id="screen-home" class="screen">
+  <header class="head">
+    <p class="eyebrow">診療放射線技師への一歩</p>
+    <h1 class="brand">放射線技師クイズ</h1>
+    <p class="head-sub">全66問・7カテゴリ・3段階</p>
+  </header>
+
+  <main class="wrap">
+    <div class="card goal">
+      <div class="goal-head">
+        <span class="goal-title">今日の目標</span>
+        <span class="goal-count"><b id="goalNow">0</b> / <span id="goalMax">10</span>問</span>
+      </div>
+      <div class="bar"><i id="goalBar" style="width:0%"></i></div>
+      <div class="stats3">
+        <div class="stat">
+          <b id="statTodayAcc">—</b>
+          <span>今日の正答率</span>
+        </div>
+        <div class="stat">
+          <b id="statAllAcc">—</b>
+          <span>全体の正答率</span>
+        </div>
+        <div class="stat">
+          <b id="statSolved">0<span class="unit">/20</span></b>
+          <span>解いた問題</span>
+        </div>
+      </div>
+    </div>
+
+    <button id="resumeCard" class="card resume" hidden>
+      <span class="resume-label">前回の続きから</span>
+      <span class="resume-title" id="resumeTitle"></span>
+      <span class="resume-pos" id="resumePos"></span>
+      <span class="chev">›</span>
+    </button>
+
+    <div class="actions">
+      <button id="btnDaily" class="btn btn-primary">今日の10問を始める</button>
+      <button id="btnReview" class="btn btn-ghost">間違えた問題を復習<span id="reviewCount" class="pill">0</span></button>
+      <button id="btnRandom" class="btn btn-ghost">ランダムに20問</button>
+    </div>
+
+    <section class="block">
+      <h2 class="h2">カテゴリで解く</h2>
+      <div id="catList" class="list"></div>
+    </section>
+
+    <section class="block">
+      <h2 class="h2">難易度で解く</h2>
+      <div id="diffList" class="diff-list"></div>
+    </section>
+
+    <footer class="foot">
+      <p>学習の記録は、この端末のブラウザにだけ保存されます。</p>
+      <button id="btnReset" class="link-btn">学習の記録をリセット</button>
+    </footer>
+  </main>
+</section>
+
+<!-- ============ 出題 ============ -->
+<section id="screen-quiz" class="screen" hidden>
+  <div class="quiz-top">
+    <button id="btnQuit" class="icon-btn" aria-label="ホームに戻る">←</button>
+    <div class="quiz-top-mid">
+      <span id="quizLabel" class="quiz-label"></span>
+      <span id="quizCount" class="quiz-count"></span>
+    </div>
+    <div class="quiz-score" id="quizScore">0</div>
+  </div>
+  <div class="bar bar-thin"><i id="quizBar" style="width:0%"></i></div>
+
+  <main class="wrap quiz-wrap">
+    <div class="tags">
+      <span id="tagCat" class="tag"></span>
+      <span id="tagDiff" class="tag tag-diff"></span>
+    </div>
+    <h2 id="qText" class="q-text"></h2>
+    <div id="choices" class="choices" role="group" aria-label="選択肢"></div>
+    <div id="feedback" class="feedback" hidden>
+      <div id="verdict" class="verdict"></div>
+      <div class="exp">
+        <h3 class="exp-title">解説</h3>
+        <p id="expText" class="exp-text"></p>
+        <p id="pointRow" class="point" hidden><span class="k">ポイント</span><span id="pointText"></span></p>
+      </div>
+      <button id="btnNext" class="btn btn-primary">次の問題へ</button>
+    </div>
+  </main>
+</section>
+
+<!-- ============ 結果 ============ -->
+<section id="screen-result" class="screen" hidden>
+  <main class="wrap result-wrap">
+    <p class="result-label" id="resultLabel"></p>
+    <div class="score">
+      <b id="resultScore">0</b><span id="resultTotal">/ 0</span>
+    </div>
+    <div class="bar bar-lg"><i id="resultBar" style="width:0%"></i></div>
+    <p class="result-msg" id="resultMsg"></p>
+
+    <div class="result-stats">
+      <div class="stat"><b id="resultAcc">0%</b><span>正答率</span></div>
+      <div class="stat"><b id="resultWrong">0</b><span>間違えた問題</span></div>
+    </div>
+
+    <div class="actions">
+      <button id="btnResultReview" class="btn btn-primary">間違えた問題を復習する</button>
+      <button id="btnResultAgain" class="btn btn-ghost">もう一度挑戦</button>
+      <button id="btnResultHome" class="btn btn-ghost">ホームに戻る</button>
+    </div>
+  </main>
+</section>
+
+<noscript>
+  <p style="padding:24px;text-align:center;">このクイズを使うにはJavaScriptを有効にしてください。</p>
+</noscript>
+
+<script src="js/questions.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
