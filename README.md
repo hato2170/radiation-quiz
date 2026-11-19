@@ -40,4 +40,9 @@ js/app.js          出題・採点・保存の処理
 
 ## 配備
 
-Render の Static Site（Publish Directory `.`）でそのまま公開できます。
+ビルド不要の静的サイトなので、そのまま静的ホスティングに置けます。
+
+- Render（Static Site・Publish Directory `.`）: https://radiation-quiz.onrender.com
+- GitHub Pages（Settings → Pages → Deploy from a branch / `main` / `/ (root)`）: https://hato2170.github.io/radiation-quiz/
+
+参照はすべて相対パス（`css/style.css`、`js/app.js` など）なので、`https://hato2170.github.io/radiation-quiz/` のようなサブパス配信でもそのまま動きます。
