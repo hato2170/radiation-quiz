@@ -4,3 +4,4 @@ test_playwright.py
 test_resume.py
 shots-alt/
 test_alt.py
+shots-cf/
